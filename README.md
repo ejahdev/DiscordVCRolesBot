@@ -19,10 +19,10 @@ This bot is intended to enhance community engagement and ensure that all members
 1. Clone the repository to your local machine.
 2. Install the required dependencies`:
 
-   ```
+   ```bash
    pip install discord.py
    or npm install depending on which version you are using
-   
+
    ```
 
 3. Obtain your Discord bot token from the [Discord Developer Portal](https://discord.com/developers/applications).
