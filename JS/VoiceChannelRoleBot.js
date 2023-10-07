@@ -63,7 +63,7 @@ client.on('voiceStateUpdate', async (oldState, newState) => {
       if (role && !member.roles.cache.has(ROLE_ID)) {
         // Send DM to the user
         try {
-          const msg = await warnChannel.send(`${member.user} You Must Accept the Voice Chat Rules Before you can use voice activity, livestream, or turn on your webcam, Scroll up and read through them, then react to the ✅ to get the DJ role.`);
+          const msg = await warnChannel.send(`<@${member.user.id}> You Must Accept the Voice Chat Rules Before you can use voice activity, livestream, or turn on your webcam, Scroll up and read through them, then react to the ✅ to get the DJ role.`);
           await member.send(DM_CONTENT);
           logger.info(`Rules Solicitation DM sent to ${member.user.tag}`);
           
