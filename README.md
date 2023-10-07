@@ -17,13 +17,12 @@ This bot is intended to enhance community engagement and ensure that all members
 ## How to Use
 
 1. Clone the repository to your local machine.
-2. Install the required dependencies
+2. Install the required dependencies:
 
    ```bash
    pip install discord.py
    or npm install depending on which version you are using
    ```
-
 3. Obtain your Discord bot token from the [Discord Developer Portal](https://discord.com/developers/applications).
 4. Copy the token of your Discord bot and either place it in the BOT_TOKEN variable in the main script or run setup.py and paste your token when prompted.
 
