@@ -19,7 +19,9 @@ This bot is intended to enhance community engagement and ensure that all members
 2. Install the required dependencies:
 
    > pip install discord.py
+
    > pip install python-dotenv
+   
    or 
    > npm install
 
