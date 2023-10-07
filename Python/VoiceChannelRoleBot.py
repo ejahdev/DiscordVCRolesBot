@@ -11,7 +11,7 @@ load_dotenv()
 ROLE_ID = int(os.environ.get("ROLE_ID"))
 RULES_CHANNEL_ID = int(os.environ.get("RULES_CHANNEL_ID"))
 SERVER_ID = int(os.environ.get("SERVER_ID"))  # Define SERVER_ID
-DM_CONTENT = "You Must Accept the Voice Chat Rules!!!. Before you can use voice activity, livestream, or turn on your webcam, you must first read and accept our Voice Chat Rules as well. Please review these rules as they are much more in depth than general server rules. Thank you! Visit <# " + RULES_CHANNEL_ID + "> to read and accept the voice rules."
+DM_CONTENT = "You Must Accept the Voice Chat Rules!!!. Before you can use voice activity, livestream, or turn on your webcam, you must first read and accept our Voice Chat Rules as well. Please review these rules as they are much more in depth than general server rules. Thank you! Visit <#" + str(RULES_CHANNEL_ID) + "> to read and accept the voice rules."
 
 
 # Set up logging
