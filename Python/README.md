@@ -19,10 +19,8 @@ This bot is intended to enhance community engagement and ensure that all members
 1. Clone the repository to your local machine.
 2. Install the required dependencies using pip
 
-   ```bash
-   pip install discord.py
+  > pip install discord.py
 
-   ```
 
 3. Obtain your Discord bot token from the [Discord Developer Portal](https://discord.com/developers/applications).
 4. Copy the token of your Discord bot and either place it in the BOT_TOKEN variable in the main script or run setup.py and paste your token when prompted.
@@ -31,9 +29,7 @@ This bot is intended to enhance community engagement and ensure that all members
    (This can be done easily from setup.py)
 6. Run the Python script:
 
-   ```bash
-   python VoiceChannelRoleBot.py
-   ```
+  > python VoiceChannelRoleBot.py
 
 7. Invite the bot to your Discord server using the OAuth2 URL generated in the [Discord Developer Portal](https://discord.com/developers/applications).
 
