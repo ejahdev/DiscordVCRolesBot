@@ -6,7 +6,7 @@ dotenv.config();
 const ROLE_ID = process.env.ROLE_ID;
 const RULES_CHANNEL_ID = process.env.RULES_CHANNEL_ID;
 const SERVER_ID = process.env.SERVER_ID;
-const DM_CONTENT = "You Must Accept the Voice Chat Rules!!!. Before you can use voice activity, livestream, or turn on your webcam, you must first read and accept our Voice Chat Rules as well. Please review these rules as they are much more in depth than general server rules. Thank you! Visit <#" + str(RULES_CHANNEL_ID) + "> to read and accept the voice rules."
+const DM_CONTENT = "You Must Accept the Voice Chat Rules!!!. Before you can use voice activity, livestream, or turn on your webcam, you must first read and accept our Voice Chat Rules as well. Please review these rules as they are much more in depth than general server rules. Thank you! Visit <#" + RULES_CHANNEL_ID + "> to read and accept the voice rules."
 
 // Set up logging
 const { createLogger, transports, format } = require('winston');
@@ -27,7 +27,7 @@ const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.MessageReactions,
+    GatewayIntentBits.GuildMessageReactions,
   ],
 });
 
