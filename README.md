@@ -23,7 +23,11 @@ This bot is intended to enhance community engagement and ensure that all members
    > pip install python-dotenv
 
    or 
-   > npm install
+   > npm install discord.js
+
+   > npm install dotenv
+
+   > npm install winston
 
 3. Obtain your Discord bot token from the [Discord Developer Portal](https://discord.com/developers/applications).
 4. Copy the token of your Discord bot and either place it in the BOT_TOKEN variable in the main script or run setup.py and paste your token when prompted.

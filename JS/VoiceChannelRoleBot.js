@@ -13,7 +13,7 @@ const { createLogger, transports, format } = require('winston');
 const logger = createLogger({
   level: 'info', // Set the logging level to 'info' (you can adjust it as needed)
   format: format.combine(
-    format.timestamp(),
+    format.timestamp({format: 'YYYY-MM-DD HH:mm:ss a'}),
     format.printf(info => `${info.timestamp} [${info.level}]: ${info.message}`)
   ),
   transports: [
