@@ -57,7 +57,7 @@ async def on_voice_state_update(member, before, after):
             if role is not None and role not in member.roles:
                 # Send DM to the user
                 try:
-                    msg = await warn_channel.send(member.mention + DM_CONTENT)
+                    msg = await warn_channel.send('${member.mention} You Must Accept the Voice Chat Rules!!!. Before you can use voice activity, livestream, or turn on your webcam, you must first read and accept our Voice Chat Rules as well. Please review these rules as they are much more in depth than general server rules. Thank you! Visit <#${RULES_CHANNEL_ID}> to read and accept the voice rules.')
                     await member.send(DM_CONTENT)
                     logging.info(f"Rules Solicitation DM sent to {member.name}")
                     await asyncio.sleep(120)
