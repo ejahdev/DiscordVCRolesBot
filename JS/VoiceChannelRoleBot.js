@@ -28,6 +28,7 @@ const client = new Client({
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers,
     GatewayIntentBits.GuildMessageReactions,
+    GatewayIntentBits.GuildVoiceStates,
   ],
 });
 
@@ -62,7 +63,7 @@ client.on('voiceStateUpdate', async (oldState, newState) => {
       if (role && !member.roles.cache.has(ROLE_ID)) {
         // Send DM to the user
         try {
-          const msg = await warnChannel.send(`${member.user} You Must Accept the Voice Chat Rules!!!`);
+          const msg = await warnChannel.send(`${member.user} You Must Accept the Voice Chat Rules!!!. Before you can use voice activity, livestream, or turn on your webcam, you must first read and accept our Voice Chat Rules as well. Please review these rules as they are much more in depth than general server rules. Thank you! Visit <#${RULES_CHANNEL_ID}> to read and accept the voice rules.`);
           await member.send(DM_CONTENT);
           logger.info(`Rules Solicitation DM sent to ${member.user.tag}`);
           
