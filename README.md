@@ -1,4 +1,3 @@
-```markdown
 # Discord Role Alert Bot
 
 ## Description
@@ -54,5 +53,3 @@ Please use this bot responsibly and in compliance with Discord's [Terms of Servi
 ## License
 
 Not Listed
-
-```
