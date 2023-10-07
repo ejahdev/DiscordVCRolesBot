@@ -19,7 +19,7 @@ This bot is intended to enhance community engagement and ensure that all members
 1. Clone the repository to your local machine.
 2. Install the required dependencies`:
 
-   ```bash
+   ```
    pip install discord.py
    or npm install depending on which version you are using
    # Add any other necessary dependencies here
@@ -29,7 +29,7 @@ This bot is intended to enhance community engagement and ensure that all members
 4. Copy the token of your Discord bot and either place it in the BOT_TOKEN variable in the main script or run setup.py and paste your token when prompted.
 
 5. Configure the necessary settings in the script, such as the desired voice channels and role assignment behavior in your .env file.
-    ```
+    ```bash
     BOT_TOKEN = ""
     SERVER_ID = 
     RULES_CHANNEL_ID = 
