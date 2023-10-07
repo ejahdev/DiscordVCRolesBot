@@ -21,7 +21,7 @@ This bot is intended to enhance community engagement and ensure that all members
    > pip install discord.py
 
    > pip install python-dotenv
-   
+
    or 
    > npm install
 
@@ -39,6 +39,7 @@ This bot is intended to enhance community engagement and ensure that all members
 6. Run the script:
 
    > python VoiceChannelRoleBot.py
+   
    or
    > node VoiceChannelRoleBot.js
 
