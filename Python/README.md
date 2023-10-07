@@ -17,11 +17,11 @@ This bot is intended to enhance community engagement and ensure that all members
 ## How to Use
 
 1. Clone the repository to your local machine.
-2. Install the required dependencies using `pip`:
+2. Install the required dependencies using pip
 
    ```bash
    pip install discord.py
-   
+
    ```
 
 3. Obtain your Discord bot token from the [Discord Developer Portal](https://discord.com/developers/applications).
