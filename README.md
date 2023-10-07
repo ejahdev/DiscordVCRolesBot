@@ -22,7 +22,7 @@ This bot is intended to enhance community engagement and ensure that all members
    ```
    pip install discord.py
    or npm install depending on which version you are using
-   # Add any other necessary dependencies here
+   
    ```
 
 3. Obtain your Discord bot token from the [Discord Developer Portal](https://discord.com/developers/applications).

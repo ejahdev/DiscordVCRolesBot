@@ -21,7 +21,7 @@ This bot is intended to enhance community engagement and ensure that all members
 
    ```bash
    pip install discord.py
-   # Add any other necessary dependencies here
+   
    ```
 
 3. Obtain your Discord bot token from the [Discord Developer Portal](https://discord.com/developers/applications).
