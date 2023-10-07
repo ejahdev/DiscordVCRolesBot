@@ -17,33 +17,35 @@ This bot is intended to enhance community engagement and ensure that all members
 ## How to Use
 
 1. Clone the repository to your local machine.
-2. Install the required dependencies using `pip`:
+2. Install the required dependencies`:
 
    ```bash
    pip install discord.py
+   or npm install depending on which version you are using
    # Add any other necessary dependencies here
    ```
 
 3. Obtain your Discord bot token from the [Discord Developer Portal](https://discord.com/developers/applications).
 4. Copy the token of your Discord bot and either place it in the BOT_TOKEN variable in the main script or run setup.py and paste your token when prompted.
 
-5. Configure the necessary settings in the script, such as the desired voice channels and role assignment behavior.
-   (This can be done easily from setup.py)
-6. Run the Python script:
-
-   ```bash
-   python VoiceChannelRoleBot.py
-   ```
-
-7. Invite the bot to your Discord server using the OAuth2 URL generated in the [Discord Developer Portal](https://discord.com/developers/applications).
-
-8. Make sure to set up your .env file and add tokens in for the variables.
+5. Configure the necessary settings in the script, such as the desired voice channels and role assignment behavior in your .env file.
 ```
 BOT_TOKEN = ""
 SERVER_ID = 
 RULES_CHANNEL_ID = 
 ROLE_ID =
 ```
+
+6. Run the script:
+
+   ```bash
+   python VoiceChannelRoleBot.py
+   or
+   node VoiceChannelRoleBot.js
+   ```
+
+7. Invite the bot to your Discord server using the OAuth2 URL generated in the [Discord Developer Portal](https://discord.com/developers/applications).
+
 ## Contributions
 
 Contributions are welcome! If you find any issues or want to suggest improvements, feel free to create an issue or submit a pull request.
