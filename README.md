@@ -23,7 +23,7 @@ This bot is intended to enhance community engagement and ensure that all members
    > pip install python-dotenv
    or 
    > npm install
-   
+
 3. Obtain your Discord bot token from the [Discord Developer Portal](https://discord.com/developers/applications).
 4. Copy the token of your Discord bot and either place it in the BOT_TOKEN variable in the main script or run setup.py and paste your token when prompted.
 
@@ -37,11 +37,9 @@ This bot is intended to enhance community engagement and ensure that all members
 
 6. Run the script:
 
-   ```bash
-   python VoiceChannelRoleBot.py
+   > python VoiceChannelRoleBot.py
    or
-   node VoiceChannelRoleBot.js
-   ```
+   > node VoiceChannelRoleBot.js
 
 7. Invite the bot to your Discord server using the OAuth2 URL generated in the [Discord Developer Portal](https://discord.com/developers/applications).
 
