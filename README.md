@@ -1,3 +1,4 @@
+```markdown
 # Discord Role Alert Bot
 
 ## Description
@@ -28,12 +29,12 @@ This bot is intended to enhance community engagement and ensure that all members
 4. Copy the token of your Discord bot and either place it in the BOT_TOKEN variable in the main script or run setup.py and paste your token when prompted.
 
 5. Configure the necessary settings in the script, such as the desired voice channels and role assignment behavior in your .env file.
-```
-BOT_TOKEN = ""
-SERVER_ID = 
-RULES_CHANNEL_ID = 
-ROLE_ID =
-```
+    ```
+    BOT_TOKEN = ""
+    SERVER_ID = 
+    RULES_CHANNEL_ID = 
+    ROLE_ID =
+    ```
 
 6. Run the script:
 
@@ -57,3 +58,4 @@ Please use this bot responsibly and in compliance with Discord's [Terms of Servi
 
 Not Listed
 
+```

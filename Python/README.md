@@ -38,12 +38,12 @@ This bot is intended to enhance community engagement and ensure that all members
 7. Invite the bot to your Discord server using the OAuth2 URL generated in the [Discord Developer Portal](https://discord.com/developers/applications).
 
 8. Make sure to set up your .env file and add tokens in for the variables.
-```
-BOT_TOKEN = ""
-SERVER_ID = 
-RULES_CHANNEL_ID = 
-ROLE_ID =
-```
+   ```
+   BOT_TOKEN = ""
+   SERVER_ID = 
+   RULES_CHANNEL_ID = 
+   ROLE_ID =
+   ```
 ## Contributions
 
 Contributions are welcome! If you find any issues or want to suggest improvements, feel free to create an issue or submit a pull request.
