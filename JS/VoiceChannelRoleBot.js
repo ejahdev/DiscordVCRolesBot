@@ -63,19 +63,23 @@ client.on('voiceStateUpdate', async (oldState, newState) => {
       if (role && !member.roles.cache.has(ROLE_ID)) {
         // Send DM to the user
         try {
-          const msg = await warnChannel.send(`<@${member.user.id}> You Must Accept the Voice Chat Rules Before you can use voice activity, livestream, or turn on your webcam, Scroll up and read through them, then react to the ✅ to get the DJ role.`);
+          const msg = await warnChannel.send(`${member.user} You Must Accept the Voice Chat Rules!!!`);
           await member.send(DM_CONTENT);
           logger.info(`Rules Solicitation DM sent to ${member.user.tag}`);
-          
-          // Delay for 120 seconds before deleting the message
-          setTimeout(async () => {
-            await msg.delete();
-            logger.info(`Solicitation warning for ${member.user.tag} has been deleted.`);
-          }, 120000); // 120,000 milliseconds = 120 seconds
+          // Wait for 120 seconds before deleting the message
+          await new Promise(resolve => setTimeout(resolve, 120000));
+          await msg.delete();
+          logger.info(`Solicitation warning for ${member.user.tag} has been deleted.`);
         } catch (error) {
-          await handle_error(`Failed to send DM to ${member.user.tag}. The user might have DMs disabled or blocked.`);
+          if (error.code === 10008) {
+            // Message not found (already deleted)
+            logger.warn(`Tried to delete a message that no longer exists.`);
+          } else {
+            // Handle other errors
+            await handle_error(`Failed to send DM to ${member.user.tag}. The user might have DMs disabled or blocked.`);
+          }
         }
-      }
+        
     }
   }
 });
