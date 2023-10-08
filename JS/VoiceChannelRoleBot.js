@@ -79,7 +79,7 @@ client.on('voiceStateUpdate', async (oldState, newState) => {
             await handle_error(`Failed to send DM to ${member.user.tag}. The user might have DMs disabled or blocked.`);
           }
         }
-        
+      }
     }
   }
 });
