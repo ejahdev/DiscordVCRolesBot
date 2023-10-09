@@ -6,14 +6,14 @@ dotenv.config();
 const ROLE_ID = process.env.ROLE_ID;
 const RULES_CHANNEL_ID = process.env.RULES_CHANNEL_ID;
 const SERVER_ID = process.env.SERVER_ID;
-const DM_CONTENT = `You Must Accept the Voice Chat Rules!!!. Before you can use voice activity, livestream, or turn on your webcam, you must first read and accept our Voice Chat Rules as well. Please review these rules as they are much more in depth than general server rules. Thank you! Visit <#${RULES_CHANNEL_ID}> to read and accept the voice rules.`
+const DM_CONTENT = "You Must Accept the Voice Chat Rules!!!. Before you can use voice activity, livestream, or turn on your webcam, you must first read and accept our Voice Chat Rules as well. Please review these rules as they are much more in depth than general server rules. Thank you! Visit <#" + RULES_CHANNEL_ID + "> to read and accept the voice rules."
 
 // Set up logging
 const { createLogger, transports, format } = require('winston');
 const logger = createLogger({
   level: 'info', // Set the logging level to 'info' (you can adjust it as needed)
   format: format.combine(
-    format.timestamp({format: 'YYYY-MM-DD HH:mm:ss a'}),
+    format.timestamp({ format: 'YYYY-MM-DD hh:mm:ss A' }),
     format.printf(info => `${info.timestamp} [${info.level}]: ${info.message}`)
   ),
   transports: [
@@ -32,9 +32,18 @@ const client = new Client({
   ],
 });
 
+// Global error handler
+process.on('unhandledRejection', (error) => {
+  console.error('Unhandled promise rejection:', error);
+});
+
 // Custom error handler
 async function handle_error(error_message) {
-  logger.error(error_message);
+  try {
+    logger.error(error_message);
+  } catch (error) {
+    console.error('Error handling error:', error);
+  }
 }
 
 // Event handler when the bot is ready
@@ -52,7 +61,7 @@ client.once('ready', () => {
 client.on('voiceStateUpdate', async (oldState, newState) => {
   const warnChannel = client.channels.cache.get(RULES_CHANNEL_ID);
   const targetGuild = client.guilds.cache.get(SERVER_ID);
-  
+
   if (targetGuild && !oldState.channel && newState.channel) {
     const member = newState.member;
 
@@ -63,21 +72,26 @@ client.on('voiceStateUpdate', async (oldState, newState) => {
       if (role && !member.roles.cache.has(ROLE_ID)) {
         // Send DM to the user
         try {
-          const msg = await warnChannel.send(`${member.user} You Must Accept the Voice Chat Rules!!!`);
           await member.send(DM_CONTENT);
           logger.info(`Rules Solicitation DM sent to ${member.user.tag}`);
-          // Wait for 120 seconds before deleting the message
-          await new Promise(resolve => setTimeout(resolve, 120000));
-          await msg.delete();
-          logger.info(`Solicitation warning for ${member.user.tag} has been deleted.`);
+
+          // Send the warning message to the warnChannel
+          const msg = await warnChannel.send(`<@${member.id}> You Must Accept the Voice Chat Rules Before you can use voice activity, livestream, or turn on your webcam, Scroll up and read through them, then react to the ✅ to get the DJ role.`);
+
+          // Delay for 120 seconds
+          setTimeout(async () => {
+            try {
+              // Attempt to delete the warnChannel message
+              await warnChannel.messages.fetch(msg.id).then((message) => message.delete());
+              logger.info(`Solicitation warning for ${member.user.tag} has been deleted.`);
+            } catch (error) {
+              // Handle the error when deleting the message
+              await handle_error(`Failed to delete the solicitation warning for ${member.user.tag}.`);
+            }
+          }, 120000); // 120,000 milliseconds = 120 seconds
         } catch (error) {
-          if (error.code === 10008) {
-            // Message not found (already deleted)
-            logger.warn(`Tried to delete a message that no longer exists.`);
-          } else {
-            // Handle other errors
-            await handle_error(`Failed to send DM to ${member.user.tag}. The user might have DMs disabled or blocked.`);
-          }
+          // Handle the error when sending DM
+          await handle_error(`Failed to send DM to ${member.user.tag}. The user might have DMs disabled or blocked.`);
         }
       }
     }
@@ -102,7 +116,8 @@ client.on('messageReactionAdd', async (reaction, user) => {
           await member.roles.add(role);
           logger.info(`Assigned ${role.name} role to ${member.user.tag}`);
         } catch (error) {
-          await handle_error(`Failed to assign ${role.name} role to ${member.user.tag}. The bot might not have sufficient permissions.`);
+          // Handle the error when assigning the role
+          await handle_error(`Failed to assign ${role.name} role to ${member.user.tag}.`);
         }
       }
     }
