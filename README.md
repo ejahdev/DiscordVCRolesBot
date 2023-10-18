@@ -2,7 +2,7 @@
 
 ## Description
 
-Discord Role Alert Bot is a Python script that monitors users joining voice channels in a Discord server and alerts them if they are missing a certain role. It provides a seamless way to guide users to read the server rules and automatically grant them the missing role once they react to the rules message.
+Discord Role Alert Bot is a script that monitors users joining voice channels in a Discord server and alerts them if they are missing a certain role. It provides a seamless way to guide users to read the server rules and automatically grant them the missing role once they react to the rules message.
 
 This bot is intended to enhance community engagement and ensure that all members are aware of the server rules while providing a convenient mechanism to comply with the rules and gain the necessary roles.
 
